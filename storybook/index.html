@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>우리 아이가 주인공인 동화책 만드는 법 | DULSET MAG</title>
+<meta name="description" content="아이 이름·나이·좋아하는 것만 넣으면 줄거리부터 장면별 그림까지, 우리 아이가 주인공인 동화책 한 권을 만들어주는 ChatGPT 프롬프트예요.">
+<meta property="og:title" content="우리 아이가 주인공인 동화책 만드는 법">
+<meta property="og:description" content="아이 이름·나이·좋아하는 것만 넣으면 줄거리부터 장면별 그림까지, 우리 아이가 주인공인 동화책 한 권을 만들어주는 ChatGPT 프롬프트예요.">
+<meta property="og:image" content="https://dulsetmag.github.io/storybook/cover.jpg">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root { --ink:#1b1b1b; --body:#3a3a3a; --muted:#8a8a8a; --line:#ece7e2; --accent:#e25634; --bg:#faf8f6; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--body);
+         font-family:Pretendard, -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+         line-height:1.6; -webkit-text-size-adjust:100%; }
+  .wrap { max-width:640px; margin:0 auto; padding:0 16px 120px; }
+  header { padding:20px 0 0; font-size:12px; letter-spacing:.3em; color:var(--muted); font-weight:700; text-align:center; }
+  .hero { margin:16px 0 24px; border-radius:20px; overflow:hidden; }
+  .hero img { display:block; width:100%; height:auto; }
+  h1 { font-size:26px; line-height:1.35; color:var(--ink); margin:0 0 8px; letter-spacing:-.02em; }
+  h1 em { font-style:normal; color:var(--accent); }
+  .lead { margin:0 0 24px; }
+  .steps { background:#fff; border:1px solid var(--line); border-radius:16px; padding:16px 20px; margin:0 0 24px; }
+  .steps h2, .prompt h2 { font-size:16px; color:var(--ink); margin:0 0 8px; }
+  .steps ol { margin:0; padding-left:20px; }
+  .prompt { margin:0 0 16px; }
+  .prompt pre { white-space:pre-wrap; word-break:keep-all; overflow-wrap:anywhere; margin:0;
+                background:#fff; border:1px solid var(--line); border-radius:16px; padding:20px;
+                font-family:inherit; font-size:15px; line-height:1.7; color:var(--body); }
+  .notes { font-size:13px; color:var(--muted); margin:0 0 24px; }
+  .notes p { margin:4px 0; }
+  .bar { position:fixed; left:0; right:0; bottom:0; padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+         background:linear-gradient(transparent, var(--bg) 30%); }
+  .bar .inner { max-width:640px; margin:0 auto; display:flex; gap:8px; }
+  .btn { flex:1; display:block; text-align:center; padding:16px 12px; white-space:nowrap; border-radius:14px; font-size:16px; font-weight:700;
+         text-decoration:none; border:0; cursor:pointer; font-family:inherit; }
+  .btn.copy { background:var(--accent); color:#fff; }
+  .btn.open { background:var(--ink); color:#fff; flex:0 0 38%; }
+  footer { text-align:center; font-size:13px; color:var(--muted); }
+  footer a { color:var(--ink); font-weight:700; text-decoration:none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>DULSET MAG</header>
+  <div class="hero"><img src="cover.jpg" alt=""></div>
+  <h1>우리 아이가 <em>주인공</em>인<br>동화책 만드는 법</h1>
+  <p class="lead">아이 이름·나이·좋아하는 것만 넣으면 줄거리부터 장면별 그림까지, 우리 아이가 주인공인 동화책 한 권을 만들어주는 ChatGPT 프롬프트예요.</p>
+  <section class="steps">
+    <h2>쓰는 법</h2>
+    <ol>
+      <li>아래 <b>[프롬프트 복사하기]</b>를 눌러요.</li>
+      <li>ChatGPT를 열고 새 채팅에 붙여넣어요.</li>
+      <li>ChatGPT가 묻는 질문에 차례로 답하면 돼요.</li>
+    </ol>
+  </section>
+  <section class="prompt">
+    <h2>프롬프트 전문</h2>
+    <pre id="prompt">당신은 20년 동안 아이들 그림책을 만들어 온 그림책 작가이자 일러스트레이터입니다.
+제 아이가 주인공인, 세상에 하나뿐인 그림책 한 권을 저와 함께 만들어주세요.
+
+먼저 아래 정보를 저에게 하나씩 물어봐 주세요. 모르는 항목은 건너뛰어도 됩니다.
+- 책 속에서 부를 아이 이름 또는 애칭
+- 아이 나이 (개월 수도 좋아요)
+- 아이 외모: 머리 길이·모양, 눈매, 자주 입는 옷과 좋아하는 색 (사진 대신 글로 설명해도 충분해요)
+- 아이가 좋아하는 것: 동물, 장난감, 음식, 놀이, 장소
+- 함께 등장할 가족·반려동물·애착 인형 (선택)
+- 요즘 고민이나 전하고 싶은 메시지 (예: 양치를 싫어해요, 동생이 생겨요, 어린이집에 처음 가요, 혼자 자는 연습 중이에요)
+- 이야기 분위기 (신나는 모험 / 따뜻한 일상 / 잠자리 이야기 / 웃긴 이야기)
+- 그림체 (수채화 / 색연필 / 파스텔 / 종이 오려 붙인 콜라주 / 추천해줘)
+- 그림 비율 (세로 4:5 / 정사각형 / 가로) — 인쇄할 계획이 있으면 알려주세요
+- 쪽수 (기본 10장: 표지 1장 + 본문 8장 + 마지막 장 1장)
+
+진행 순서
+1. 제 답을 짧게 요약해주세요.
+2. 주인공 캐릭터 시트를 글로 정리해주세요.
+   얼굴형 / 머리 / 눈 / 옷(색까지) / 신발 / 늘 들고 다니는 물건 / 그림체 / 색 팔레트
+   이 설명은 앞으로 모든 그림에 똑같이 넣습니다.
+3. 캐릭터 시트대로 주인공 기준 그림 1장을 그려주세요. (전신, 정면, 단순한 배경)
+   제가 &quot;좋아요&quot;라고 하면 다음으로 넘어가고, 고쳐달라고 하면 말한 부분만 고쳐주세요.
+4. 줄거리 3가지를 2~3줄씩 제안해주세요.
+   구조: 시작 → 문제가 생김 → 아이가 스스로 해결 → 따뜻한 마무리
+   제가 하나를 고르면 다음으로 넘어가 주세요.
+5. 쪽별 원고를 표로 정리해주세요. (쪽 / 본문 / 그림 설명)
+   본문 길이는 나이에 맞춰주세요.
+   - 3세 이하: 한 쪽에 1~2문장, 짧고 반복되는 말과 의성어
+   - 4~5세: 한 쪽에 2~3문장
+   - 6~7세: 한 쪽에 3~4문장, 대화문도 조금
+   소리 내어 읽었을 때 리듬이 좋게 써주세요.
+6. 원고를 확인받은 뒤 그림을 1장씩 차례대로 그려주세요.
+   매번 2단계 캐릭터 시트와 3단계 기준 그림을 그대로 따르고, 그림 안에는 글자를 넣지 마세요.
+   한 장을 그린 뒤 &quot;다음 장으로 갈까요?&quot;라고 물어봐 주세요.
+7. 마지막으로 아래를 만들어주세요.
+   - 책 제목 후보 5개
+   - 표지 그림 (제목 글자는 넣지 말고 그림만)
+   - 마지막 장에 넣을 &quot;○○에게&quot; 짧은 편지 (부모가 아이에게 쓰는 말투, 5줄 이내)
+
+지켜주세요
+- 기존 만화·애니메이션 캐릭터나 실존 인물을 등장시키거나 비슷하게 그리지 마세요.
+- 무섭거나 위험한 장면, 아이를 혼내거나 겁주는 교훈은 넣지 마세요. 고민은 아이가 스스로 해내는 이야기로 풀어주세요.
+- 제가 &quot;얼굴이 달라졌어요&quot;라고 하면 기준 그림과 같은 얼굴·머리·옷으로 그 장면만 다시 그려주세요.
+- 그림 생성 횟수 제한에 걸리면 어디까지 했는지 정리해주세요. 다음에 같은 대화창에서 이어서 할게요.</pre>
+  </section>
+  <div class="notes"><p>※ 아이 사진을 올리지 않아도 글로 외모를 자세히 설명하면 충분히 닮게 그려줘요. 사진을 올린다면 ChatGPT 설정에서 대화 내용을 모델 학습에 쓰지 않도록 꺼둘 수 있어요.</p><p>※ 무료 요금제는 그림 생성 횟수에 제한이 있어요. 하루에 다 못 만들면 같은 대화창에서 이어서 하세요.</p><p>※ 장면마다 얼굴이 조금씩 달라지면 &quot;기준 그림과 똑같은 얼굴·옷으로 다시&quot;라고 그 장만 다시 요청하세요.</p></div>
+  <footer>더 많은 결혼·육아 꿀팁은 <a href="https://www.instagram.com/dulset.mag/">@dulset.mag</a></footer>
+</div>
+<div class="bar"><div class="inner">
+  <button class="btn copy" id="copy" type="button">프롬프트 복사하기</button>
+  <a class="btn open" href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPT 열기</a>
+</div></div>
+<script>
+  const btn = document.getElementById('copy');
+  const text = document.getElementById('prompt').innerText;
+  function done() { btn.textContent = '복사됐어요! ChatGPT에 붙여넣기'; setTimeout(() => btn.textContent = '프롬프트 복사하기', 2500); }
+  btn.addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(text); done(); return; } catch (e) {}
+    const ta = document.createElement('textarea');
+    ta.value = text; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select(); ta.setSelectionRange(0, text.length);
+    try { document.execCommand('copy'); done(); } catch (e) { alert('길게 눌러서 직접 복사해주세요.'); }
+    ta.remove();
+  });
+</script>
+</body>
+</html>
